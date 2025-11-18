@@ -3,15 +3,35 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "test": "mocha",
+    "test:watch": "mocha --watch",
+    "test:post": "mocha test/post-api.test.js",
+    "test:get": "mocha test/get-api.test.js"
+  },
+  "engines": {
+    "node": "^20.19.4"
+  },
   "dependencies": {
-    "18": "^0.0.0",
+    "@faker-js/faker": "^10.1.0",
     "axios": "^1.11.0",
     "base-64": "^1.0.0",
+    "basic-auth": "^2.0.1",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.18.0",
-    "node": "^20.19.4",
-    "nodemon": "^3.1.10"
+    "nodemon": "^3.1.10",
+    "properties-reader": "^2.3.0",
+    "rimraf": "^6.0.1",
+    "supertest": "^7.1.4"
+  },
+  "devDependencies": {
+    "chai": "^5.1.0",
+    "chai-http": "^5.1.2",
+    "mocha": "^11.7.4",
+    "mochawesome": "^7.1.4"
   }
 }

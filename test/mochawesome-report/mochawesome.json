@@ -1,0 +1,195 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-10-18T15:45:44.214Z",
+    "end": "2025-10-18T15:45:46.736Z",
+    "duration": 2522,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ebefba4e-c69b-412c-8293-dc3018056e3f",
+      "title": "",
+      "fullFile": "/home/obi/Documents/IPIT/CustoFit-Backend/test/get-api.test.js",
+      "file": "/get-api.test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7a1bce87-f2fa-470d-aaa2-3f0fd0e1586d",
+          "title": "GET API Tests",
+          "fullFile": "/home/obi/Documents/IPIT/CustoFit-Backend/test/get-api.test.js",
+          "file": "/get-api.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"GET API Tests\"",
+              "fullTitle": "GET API Tests \"before all\" hook in \"GET API Tests\"",
+              "timedOut": false,
+              "duration": 1348,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await connectToMongo();\nrequest = supertest(app);",
+              "err": {},
+              "uuid": "c2487715-ce71-4714-808d-c6b910f0e6a9",
+              "parentUUID": "7a1bce87-f2fa-470d-aaa2-3f0fd0e1586d",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should get all users (protected route)",
+              "fullTitle": "GET API Tests should get all users (protected route)",
+              "timedOut": false,
+              "duration": 283,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Since your GET /users requires basic auth, you need to provide credentials here.\n// For testing, use base64 encoded \"email:password\" of a test user you created during POST tests.\nconst email = \"testuser@example.com\";\nconst password = \"password123\";\nconst basicAuth = Buffer.from(`${email}:${password}`).toString(\"base64\");\nconst res = await request\n  .get(\"/users\")\n  .set(\"Authorization\", `Basic ${basicAuth}`);\nexpect(res.status).to.equal(200);\nexpect(res.body).to.be.an(\"array\");\nif (res.body.length > 0) {\n  expect(res.body[0]).to.not.have.property(\"password\");\n}",
+              "err": {},
+              "uuid": "27c39b3c-c9db-455e-9aa7-99a185dc6a28",
+              "parentUUID": "7a1bce87-f2fa-470d-aaa2-3f0fd0e1586d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should get all locations",
+              "fullTitle": "GET API Tests should get all locations",
+              "timedOut": false,
+              "duration": 288,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// /locations GET is protected too (uses basicAuth middleware)\nconst email = \"testuser@example.com\";\nconst password = \"password123\";\nconst basicAuth = Buffer.from(`${email}:${password}`).toString(\"base64\");\nconst res = await request\n  .get(\"/locations\")\n  .set(\"Authorization\", `Basic ${basicAuth}`);\nexpect(res.status).to.equal(200);\nexpect(res.body).to.be.an(\"array\");",
+              "err": {},
+              "uuid": "657ba60f-9136-4c46-91c8-481da0079f9e",
+              "parentUUID": "7a1bce87-f2fa-470d-aaa2-3f0fd0e1586d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should get all inventory items",
+              "fullTitle": "GET API Tests should get all inventory items",
+              "timedOut": false,
+              "duration": 139,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const email = \"testuser@example.com\";\nconst password = \"password123\";\nconst basicAuth = Buffer.from(`${email}:${password}`).toString(\"base64\");\nconst res = await request\n  .get(\"/inventory\")\n  .set(\"Authorization\", `Basic ${basicAuth}`);\nexpect(res.status).to.equal(200);\nexpect(res.body).to.be.an(\"array\");",
+              "err": {},
+              "uuid": "1a71d1ff-3b41-4453-bd0f-d9fa2c858cc8",
+              "parentUUID": "7a1bce87-f2fa-470d-aaa2-3f0fd0e1586d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should get all cart items",
+              "fullTitle": "GET API Tests should get all cart items",
+              "timedOut": false,
+              "duration": 141,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const email = \"testuser@example.com\";\nconst password = \"password123\";\nconst basicAuth = Buffer.from(`${email}:${password}`).toString(\"base64\");\nconst res = await request\n  .get(\"/cart\")\n  .set(\"Authorization\", `Basic ${basicAuth}`);\nexpect(res.status).to.equal(200);\nexpect(res.body).to.be.an(\"array\");",
+              "err": {},
+              "uuid": "859223a4-7013-407f-ae5e-e61bb86d8e9d",
+              "parentUUID": "7a1bce87-f2fa-470d-aaa2-3f0fd0e1586d",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should get all orders",
+              "fullTitle": "GET API Tests should get all orders",
+              "timedOut": false,
+              "duration": 300,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const email = \"testuser@example.com\";\nconst password = \"password123\";\nconst basicAuth = Buffer.from(`${email}:${password}`).toString(\"base64\");\nconst res = await request\n  .get(\"/orders\")\n  .set(\"Authorization\", `Basic ${basicAuth}`);\nexpect(res.status).to.equal(200);\nexpect(res.body).to.be.an(\"array\");",
+              "err": {},
+              "uuid": "00b0b751-460f-4bd3-8d36-2257aaf395a6",
+              "parentUUID": "7a1bce87-f2fa-470d-aaa2-3f0fd0e1586d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "27c39b3c-c9db-455e-9aa7-99a185dc6a28",
+            "657ba60f-9136-4c46-91c8-481da0079f9e",
+            "1a71d1ff-3b41-4453-bd0f-d9fa2c858cc8",
+            "859223a4-7013-407f-ae5e-e61bb86d8e9d",
+            "00b0b751-460f-4bd3-8d36-2257aaf395a6"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1151,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 15000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.4"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.0"
+    }
+  }
+}

@@ -138,11 +138,8 @@ app.post("/signin", async (req, res) => {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
-    if (foundUser.password !== password) {
-      console.log("Passwords don't match:", {
-        stored: foundUser.password,
-        given: password,
-      });
+    const decodedPassword = base64.decode(foundUser.password);
+    if (decodedPassword !== password) {
       return res.status(401).json({ error: "Invalid email or password" });
     }
 
@@ -150,6 +147,7 @@ app.post("/signin", async (req, res) => {
       message: "Login successful",
       user: {
         _id: foundUser._id,
+        name: foundUser.name,
         email: foundUser.email,
       },
     });
@@ -374,3 +372,5 @@ app.listen(port, async () => {
   await connectToMongo();
   console.log(`Server is running on http://localhost:${port}`);
 });
+
+module.exports = { app, connectToMongo };
