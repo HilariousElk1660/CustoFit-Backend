@@ -10,7 +10,7 @@ const uri = process.env.MONGODB_URI || "mongodb://localhost:27017/CustoFit";
 
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: ["http://localhost:5173", "http://www.custo-fit.com.s3-website-us-east-1.amazonaws.com"],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
